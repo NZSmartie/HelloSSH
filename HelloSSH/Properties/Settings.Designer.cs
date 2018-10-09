@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelloSSH.WPF.Properties
+namespace HelloSSH.Properties
 {
 
 

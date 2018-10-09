@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\Internal\PageantWindow.Interop.cs" />
+    <Compile Include="Services\Internal\PageantWindow.cs" />
+    <Compile Include="Services\Internal\RestartManager.cs" />
+    <Compile Include="Services\Internal\SshRequest.cs" />
+    <Compile Include="Services\Internal\SshRequestIdentities.cs" />
+    <Compile Include="Services\Internal\SshRequestAddIdentity.cs" />
+    <Compile Include="Services\SshAgent.cs" />
     <Compile Include="Services\TestHelloService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

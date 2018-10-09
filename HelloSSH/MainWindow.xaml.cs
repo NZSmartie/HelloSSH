@@ -1,5 +1,4 @@
-﻿using HelloSSH.WPF.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,35 +14,47 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HelloSSH.WPF
+using HelloSSH.Services;
+
+namespace HelloSSH
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SshAgent _sshAgent;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            Loaded += MainWindow_Loaded;
+            Activated += MainWindow_Activated;
+
+            Deactivated += MainWindow_Deactivated;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void MainWindow_Activated(object sender, EventArgs e)
         {
-            var test = new TestHelloService();
+            _sshAgent = new SshAgent();
+            //var test = new TestHelloService();
 
-            test.ParentHWind = new WindowInteropHelper(GetWindow(this)).Handle;
+            //test.ParentHWind = new WindowInteropHelper(GetWindow(this)).Handle;
 
-            var input = Encoding.UTF8.GetBytes("This is a test string");
+            //var input = Encoding.UTF8.GetBytes("This is a test string");
 
-            var data = test.Encrypt(input);
+            //var data = test.Encrypt(input);
 
-            System.Diagnostics.Debug.WriteLine($"encrypted data = {Convert.ToString(data)}");
+            //System.Diagnostics.Debug.WriteLine($"encrypted data = {Convert.ToString(data)}");
 
-            var output = test.PromptToDecrypt(data, "Decrypt test data");
+            //var output = test.PromptToDecrypt(data, "Decrypt test data");
 
-            System.Diagnostics.Debug.WriteLine($"Output data = {Encoding.UTF8.GetString(output)}");
+            //System.Diagnostics.Debug.WriteLine($"Output data = {Encoding.UTF8.GetString(output)}");
+        }
+
+        private void MainWindow_Deactivated(object sender, EventArgs e)
+        {
+            _sshAgent.Dispose();
         }
     }
 }

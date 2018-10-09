@@ -8,7 +8,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelloSSH.WPF.Services
+namespace HelloSSH.Services
 {
     public class TestHelloService
     {
